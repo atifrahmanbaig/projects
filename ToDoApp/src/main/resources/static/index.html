@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>ToDo Tasks Management</title>
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/angular.min.js" type="text/javascript"></script>
+<script src="js/todoApp.js" type="text/javascript"></script>
+</head>
+<body ng-app="ToDoApp">
+	<div ng-controller="ToDoCtrl" class="mainPage">
+		<form ng-submit="add()">
+			<h1 class="hd1">ToDo Tasks Management</h1>
+			<div><label class="lbl">ToDo Description</label>
+				<input ng-model="todoDesc"placeholder="Enter ToDo Description">
+				<button type="submit">Add</button>
+			</div>
+			
+			<div><label class="lbl">Show </label>
+				<select ng-change="showList()" ng-model="visibleStatus">
+					<option value="ALL" selected="selected">All</option>
+					<option value="COMPLETED">Completed</option>
+					<option value="PENDING">Pending</option>
+				</select>
+			</div>
+			<table class="tbl">
+				<tr>
+					<th>#</th><th>ToDo Description</th><th>Created On</th><th>Completed On</th><th>Status</th><th>Action</th>
+				</tr>
+				<tr ng-repeat="item in todoList" ng-style="{color: item.completed ? '#788' : '#224488' }">
+					<td>{{item.id}}</td>
+					<td>{{item.description}}</td>
+					<td>{{item.createdOn| date:'medium'}}</td>
+					<td>{{item.completedOn| date:'medium'}}</td>
+					<td>
+						<span ng-if="item.completed">Done</span><span ng-if="!item.completed">Not Done</span>
+					</td>
+					<td>
+						<span ng-if="!item.completed"><button type="button" ng-click="complete(item)">Complete</button></span>
+						<span ng-if="item.completed"><button type="button" ng-click="pending(item)">Pending</button></span>
+						<button type="button" ng-click="delete(item)" class="deleteBtn">Delete</button>
+					</td>
+				</tr>
+				
+			</table>
+			
+		</form>
+	</div>
+</body>
+</html>
