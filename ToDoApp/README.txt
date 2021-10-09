@@ -1,13 +1,8 @@
 # ToDo
 My application to maintain ToDo tasks list
 
-Download and unzip TodosApp.zip file
 
-on command line goto folder location which has this todos.war file
-
-execute below command
-
-java -jar todos.war
+mvn spring-boot:run
 
 
 then below URL on web browser
