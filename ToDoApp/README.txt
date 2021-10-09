@@ -1,5 +1,5 @@
 # ToDo
-My application to maintain ToDO list
+My application to maintain ToDo tasks list
 
 Download and unzip TodosApp.zip file
 
