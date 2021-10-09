@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('GitPull') {
+            steps {
+                echo 'GotPull'
+            }
+        }
+        stage('Build Project') {
+            steps {
+                echo 'Step 1 of 1st Stage'
+                echo 'Step 2 of 1st Stage'
+            }
+        }
+        stage('UnitTest') {
+            steps {
+                echo 'Unit Test'
+            }
+        }
+        stage('Deploy Project') {
+            steps {
+                echo 'Deploying Project...'
+            }
+        }
+        stage('Final Test') {
+            steps {
+                echo 'Final Test'
+            }
+        }
+        stage('Send Release Email') {
+            steps {
+                echo 'Sending Release Email'
+            }
+        }
+    }
+}
